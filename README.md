@@ -11,11 +11,12 @@ See also [steam_stats](https://github.com/dbeley/steam_stats) which is the utili
 If you want to create your own, follow those instructions:
 
 - Fork this repository
-- Create new secrets in your repository (Repository Settings > Secrets and Variables > Actions > New repository secret)
+- Create new secrets in your repository (Repository settings > Secrets and variables > Actions > New repository secret)
     - `STEAM_API_KEY` with your Steam API key (Create one [here](https://steamcommunity.com/dev/apikey))
     - `STEAM_USERID` with your Steam user ID (Find it in your [Steam account page](https://store.steampowered.com/account/))
+- Allow the Github Action to write on your repo (Repository settings > Actions > General > Workflow permissions > Read and write)
 - Run the Github Action `refresh-data` (Tab "Actions")
-- Use Github Pages to deploy the `docs` folder (Repository Settings > Pages > Deploy from a branch > Select main branch > docs folder > Save)
+- Use Github Pages to deploy the `docs` folder (Repository settings > Pages > Deploy from a branch > Select main branch > docs folder > Save)
 
 ## Credits
 
