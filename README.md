@@ -9,8 +9,11 @@ The data can also be downloaded in various format (csv, xlsx, pdf).
 If you want to create your own, it's quite simple:
 
 - Fork this repository
-- Create a Steam API key for your account
-- Enable the github action
+- Fill up secrets in the repository (Repository Settings > Secrets and Variables > Actions > New repository secret)
+    - `STEAM_API_KEY` with your Steam API key (Create one [here](https://steamcommunity.com/dev/apikey))
+    - `STEAM_USERID` with your Steam user ID (Find it in your [Steam account page](https://store.steampowered.com/account/))
+- Run the Github Action "refresh-data"
+- Use Github Pages to deploy the `docs` folder (Repository Settings > Pages > Deploy from a branch > main > Save)
 
 ## Credits
 
