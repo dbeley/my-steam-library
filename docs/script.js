@@ -32,11 +32,11 @@ $(document).ready(function() {
 			"paging": true,
 			"autoWidth": true,
 			"pageLength": 25,
-			"order": [[3, 'desc']],
+			"order": [[4, 'desc']],
     		"columnDefs": [
-      	  	  { type: numbersType, targets: [3] },
+      	  	  { type: numbersType, targets: [1] },
       	  	  // { targets: [2], render: DataTable.render.datetime('D MMM. YYYY', 'YYYY-MM-DD', 'en') },
-      	  	  { targets: [5], render: DataTable.render.formatDuration() },
+      	  	  { targets: [4], render: DataTable.render.formatDuration() },
     		],
     		"responsive": true
 		}
