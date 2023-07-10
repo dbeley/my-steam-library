@@ -17,11 +17,25 @@ jobs:
       - name: Initialize python env
         run: |
           python -m pip install --upgrade pip
+          pip install pandas requests steam tqdm beautifulsoup4 lxml
+      - name: Clone steam_stats
+        run: |
+          git clone https://github.com/dbeley/steam_stats
       - name: Extract Steam appids of owned games
+        run: |
+          python steam_stats/scripts/get_ids.py -u $STEAM_USERID -f ids.csv -t owned
+        env:
+          STEAM_API_KEY: ${{ secrets.STEAM_API_KEY }}
+          STEAM_USERID: ${{ secrets.STEAM_USERID }}
+      - name: Extract playtime data
+        run: |
+          python steam_stats/scripts/get_playtime.py -u $STEAM_USERID -f playtime.csv
         env:
           STEAM_API_KEY: ${{ secrets.STEAM_API_KEY }}
           STEAM_USERID: ${{ secrets.STEAM_USERID }}
       - name: Extract Steam data from appids
+        run: |
+          python -m steam_stats.steam_stats -f ids.csv --export_filename game_info.csv
         env:
           STEAM_API_KEY: ${{ secrets.STEAM_API_KEY }}
           STEAM_USERID: ${{ secrets.STEAM_USERID }}
