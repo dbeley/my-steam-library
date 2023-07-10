@@ -8,6 +8,7 @@ def read_template(file: str) -> Template:
         content = f.read()
     return Template(content)
 
+
 def format_playtime(playtime: int) -> str:
     return str(round(playtime / 60, 1)) + " hours"
 
@@ -35,10 +36,16 @@ header = (
 )
 
 df["percentage_positive_reviews"] = df["total_positive"] / df["total_reviews"]
-df["percentage_playtime_linux"] = df['playtime linux'] / df['playtime']
+df["percentage_playtime_linux"] = df["playtime linux"] / df["playtime"]
 
 sum_playtime = format_playtime(df["playtime"].sum())
-quality_index = str(round((df["percentage_positive_reviews"] * df["playtime"]).sum() / df["playtime"].sum(), 2))
+quality_index = str(
+    round(
+        (df["percentage_positive_reviews"] * df["playtime"]).sum()
+        / df["playtime"].sum(),
+        2,
+    )
+)
 
 table_data = ""
 table_data += "<tbody>\n"
@@ -56,7 +63,9 @@ for index, row in df.iterrows():
 
     percentage_playtime_linux = ""
     if not pd.isnull(row["percentage_playtime_linux"]):
-        percentage_playtime_linux = str(round(row["percentage_playtime_linux"] * 100, 2)) + '%'
+        percentage_playtime_linux = (
+            str(round(row["percentage_playtime_linux"] * 100, 2)) + "%"
+        )
 
     table_data += (
         "<tr>\n"
@@ -85,7 +94,13 @@ table_data += "</tbody>\n"
 date_update = datetime.today().strftime("%Y-%m-%d")
 
 formatted_message = read_template("template.html").safe_substitute(
-        {"date_update": date_update, "header": header, "table_data": table_data, "sum_playtime": sum_playtime, "quality_index": quality_index}
+    {
+        "date_update": date_update,
+        "header": header,
+        "table_data": table_data,
+        "sum_playtime": sum_playtime,
+        "quality_index": quality_index,
+    }
 )
 with open("docs/index.html", "w") as f:
     f.write(formatted_message)
