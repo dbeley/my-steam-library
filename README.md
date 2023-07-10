@@ -4,16 +4,18 @@ This is a simple website to display my Steam library. The data is automatically 
 
 The data can also be downloaded in various format (csv, xlsx, pdf).
 
+See also [steam_stats](https://github.com/dbeley/steam_stats) which is the utility used to extract the data from Steam.
+
 ## Create your own
 
-If you want to create your own, it's quite simple:
+If you want to create your own, follow those instructions:
 
 - Fork this repository
-- Fill up secrets in the repository (Repository Settings > Secrets and Variables > Actions > New repository secret)
+- Create new secrets in your repository (Repository Settings > Secrets and Variables > Actions > New repository secret)
     - `STEAM_API_KEY` with your Steam API key (Create one [here](https://steamcommunity.com/dev/apikey))
     - `STEAM_USERID` with your Steam user ID (Find it in your [Steam account page](https://store.steampowered.com/account/))
-- Run the Github Action "refresh-data"
-- Use Github Pages to deploy the `docs` folder (Repository Settings > Pages > Deploy from a branch > main > Save)
+- Run the Github Action `refresh-data` (Tab "Actions")
+- Use Github Pages to deploy the `docs` folder (Repository Settings > Pages > Deploy from a branch > Select main branch > docs folder > Save)
 
 ## Credits
 
