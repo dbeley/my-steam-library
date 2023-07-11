@@ -2,7 +2,7 @@ name: refresh-data
 on:
   workflow_dispatch: # allows manual triggering
   schedule:
-    - cron: '16 6 * * 1' # runs every Monday at 6:16
+    - cron: '48 22 * * 1' # runs every Monday at 22:48
 
 jobs:
   build:
