@@ -1,8 +1,10 @@
 ﻿# my-steam-library
 
-This is a simple website to display my Steam library. The data is automatically updated weekly thanks to a Github action.
+[dbeley.github.io/my-steam-library](https://dbeley.github.io/my-steam-library)
 
-The data can also be downloaded in various format (csv, xlsx, pdf).
+This is a simple website to display my Steam library. The data is updated weekly thanks to a Github action.
+
+The data can also be downloaded in various format (csv, xlsx, pdf) directly from the deployed website.
 
 See also [steam_stats](https://github.com/dbeley/steam_stats) which is the utility used to extract the data from Steam.
 
@@ -11,13 +13,11 @@ See also [steam_stats](https://github.com/dbeley/steam_stats) which is the utili
 If you want to create your own, follow those instructions:
 
 - Fork this repository
-- Create new secrets in your repository (Repository settings > Secrets and variables > Actions > New repository secret)
+- Add the following secrets to your repository (Repository settings > Secrets and variables > Actions > New repository secret)
     - `STEAM_API_KEY` with your Steam API key (Create one [here](https://steamcommunity.com/dev/apikey))
-    - `STEAM_USERID` with your Steam user ID (Find it in your [Steam account page](https://store.steampowered.com/account/))
+    - `STEAM_USERID` with your Steam User ID (Find it in your [Steam account page](https://store.steampowered.com/account/))
 - Allow the Github Action to write on your repo (Repository settings > Actions > General > Workflow permissions > Read and write)
-- Run the Github Action `refresh-data` (Tab "Actions")
+- Manually run the `refresh-data` Github Action (Tab "Actions")
 - Use Github Pages to deploy the `docs` folder (Repository settings > Pages > Deploy from a branch > Select main branch > docs folder > Save)
-
-## Credits
-
-<a target="_blank" href="https://icons8.com/icon/rY0tVPCr9Fer/steam">Steam Logo</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+- The website will soon be available at `https://YOUR_USERNAME.github.io/my-steam-library`
+- The Github Action should automatically run every Monday
