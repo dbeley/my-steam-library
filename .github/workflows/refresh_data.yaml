@@ -44,7 +44,7 @@ jobs:
           rm -r steam_stats
       - name: Create new export
         run: |
-          python create_export.py
+          python steam_html_builder.py
       - name: Pull remote changes
         run: |
           git pull
