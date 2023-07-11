@@ -17,7 +17,7 @@ jobs:
       - name: Initialize python env
         run: |
           python -m pip install --upgrade pip
-          pip install pandas requests steam tqdm beautifulsoup4 lxml
+          pip install pandas requests tqdm beautifulsoup4 lxml
       - name: Clone steam_stats
         run: |
           git clone https://github.com/dbeley/steam_stats
