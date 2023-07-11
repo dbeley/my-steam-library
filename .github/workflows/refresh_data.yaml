@@ -44,6 +44,6 @@ jobs:
           python create_export.py
       - name: Clean repository
         run: |
-          git rm --cached steam_statss
+          git rm --cached steam_stats
           git pull
       - uses: stefanzweifel/git-auto-commit-action@v4
