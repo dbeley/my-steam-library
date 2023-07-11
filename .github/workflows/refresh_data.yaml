@@ -39,11 +39,13 @@ jobs:
         env:
           STEAM_API_KEY: ${{ secrets.STEAM_API_KEY }}
           STEAM_USERID: ${{ secrets.STEAM_USERID }}
+      - name: Cleanup repository
+        run: |
+          rm -r steam_stats
       - name: Create new export
         run: |
           python create_export.py
-      - name: Clean repository
+      - name: Pull remote changes
         run: |
-          git rm --cached steam_stats
           git pull
       - uses: stefanzweifel/git-auto-commit-action@v4
