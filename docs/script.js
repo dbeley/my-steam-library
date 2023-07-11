@@ -38,6 +38,7 @@ $(document).ready(function() {
     		"columnDefs": [
       	  	  { type: numbersType, targets: [1] },
       	  	  // { targets: [2], render: DataTable.render.datetime('D MMM. YYYY', 'YYYY-MM-DD', 'en') },
+      	  	  { targets: [2], render: DataTable.render.number() },
       	  	  { targets: [4], render: DataTable.render.formatDuration() },
     		],
     		"responsive": true
