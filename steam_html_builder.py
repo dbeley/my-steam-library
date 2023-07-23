@@ -28,21 +28,30 @@ header = (
     "<th>Release Year</th>"
     "<th>Reviews</th>"
     "<th>Percentage Positive Reviews</th>"
-    "<th>Playtime</th>"
-    "<th>Percentage Linux Playtime</th>"
+    "<th>Total Playtime</th>"
+    "<th>Percentage Total Playtime on Linux</th>"
+    "<th>Recent Playtime</th>"
     "<th>Developers</th>"
     "<th>Publishers</th>"
     "<th>appid</th>"
 )
 
 df["percentage_positive_reviews"] = df["total_positive"] / df["total_reviews"]
-df["percentage_playtime_linux"] = df["playtime linux"] / df["playtime"]
+df["percentage_playtime_linux"] = df["playtime_linux"] / df["playtime"]
 
 sum_playtime = format_playtime(df["playtime"].sum())
 quality_index = str(
     round(
         (df["percentage_positive_reviews"] * df["playtime"]).sum()
         / df["playtime"].sum(),
+        2,
+    )
+)
+sum_recent_playtime = format_playtime(df["playtime_2weeks"].sum())
+quality_index_recent = str(
+    round(
+        (df["percentage_positive_reviews"] * df["playtime_2weeks"]).sum()
+        / df["playtime_2weeks"].sum(),
         2,
     )
 )
@@ -81,6 +90,8 @@ for index, row in df.iterrows():
         "\n"
         f"<td>{percentage_playtime_linux}</td>"
         "\n"
+        f"<td>{row['playtime_2weeks']}</td>"
+        "\n"
         f"<td>{row['developers']}</td>"
         "\n"
         f"<td>{row['publishers']}</td>"
@@ -100,6 +111,8 @@ formatted_message = read_template("template.html").safe_substitute(
         "table_data": table_data,
         "sum_playtime": sum_playtime,
         "quality_index": quality_index,
+        "sum_recent_playtime": sum_recent_playtime,
+        "quality_index_recent": quality_index_recent,
     }
 )
 with open("docs/index.html", "w") as f:

@@ -13,7 +13,6 @@ $(document).ready(function() {
     			var minutes = Math.ceil(data % 60/60*10);
     			return hours + ',' + minutes + " hours"
         	}
-        	// Search, order and type can use the original data
         	return data;
         	}
     };
@@ -37,9 +36,8 @@ $(document).ready(function() {
 			"order": [[4, 'desc']],
     		"columnDefs": [
       	  	  { type: numbersType, targets: [1] },
-      	  	  // { targets: [2], render: DataTable.render.datetime('D MMM. YYYY', 'YYYY-MM-DD', 'en') },
       	  	  { targets: [2], render: DataTable.render.number() },
-      	  	  { targets: [4], render: DataTable.render.formatDuration() },
+      	  	  { targets: [4, 6], render: DataTable.render.formatDuration() },
     		],
     		"responsive": true
 		}
