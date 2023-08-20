@@ -75,10 +75,15 @@ for index, row in df.iterrows():
         percentage_playtime_linux = (
             str(round(row["percentage_playtime_linux"] * 100, 2)) + "%"
         )
+    image_url = f"https://steamcdn-a.akamaihd.net/steam/apps/{row['appid']}/header.jpg"
 
     table_data += (
         "<tr>\n"
-        f"<td><a href='{row['url']}'>{row['name']}</a></td>"
+        "<td>"
+        f"<img loading='lazy' width='200' src='{image_url}' alt='Header image'/>"
+        "\n"
+        f"<a href='{row['url']}'>{row['name']}</a></td>"
+        "\n"
         "\n"
         f"<td>{release_year}</td>"
         "\n"
