@@ -35,10 +35,10 @@ $(document).ready(function() {
             "scrollToTop": true,
             "order": [[4, 'desc']],
             "columnDefs": [
-      	  	  { type: numbersType, targets: [1] },
-      	  	  { targets: [2], render: DataTable.render.number() },
-      	  	  { targets: [4, 6], render: DataTable.render.formatDuration() },
-              { width: "25%", targets: 0 }
+                { type: numbersType, targets: [1] },
+                { targets: [2], render: DataTable.render.number() },
+                { targets: [4, 6], render: DataTable.render.formatDuration() },
+                { width: "25%", targets: 0 }
             ],
             "responsive": true
         }
