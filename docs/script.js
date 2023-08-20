@@ -33,7 +33,7 @@ $(document).ready(function() {
             "aLengthMenu": [[10, 25, 50, 100, 1000, -1], [10, 25, 50, 100, 1000, "All"]],
             "pageLength": 25,
             "scrollToTop": true,
-            "order": [[4, 'desc']],
+            "order": [[6, 'desc']],
             "columnDefs": [
                 { type: numbersType, targets: [1] },
                 { targets: [2], render: DataTable.render.number() },
