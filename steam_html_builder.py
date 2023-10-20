@@ -22,6 +22,12 @@ df = df.fillna(
         "release_date": "",
     }
 )
+df = df.astype(
+    {
+        "achieved_achievements": "Int64",
+        "total_achievements": "Int64",
+    }
+)
 
 header = (
     "<th>Name</th>"
@@ -33,6 +39,7 @@ header = (
     "<th>Recent Playtime</th>"
     "<th>Developers</th>"
     "<th>Publishers</th>"
+    "<th>Achievements</th>"
     "<th>appid</th>"
 )
 
@@ -76,6 +83,17 @@ for index, row in df.iterrows():
             str(round(row["percentage_playtime_linux"] * 100, 2)) + "%"
         )
     image_url = f"https://steamcdn-a.akamaihd.net/steam/apps/{row['appid']}/header.jpg"
+    achievements = (
+        (
+            f"{row['achieved_achievements']} / {row['total_achievements']}"
+            f" ({int(row['achieved_achievements']/row['total_achievements']*100)}%)"
+        )
+        if not (
+            pd.isnull(row["achieved_achievements"])
+            or pd.isnull(row["total_achievements"])
+        )
+        else ""
+    )
 
     table_data += (
         "<tr>\n"
@@ -100,6 +118,8 @@ for index, row in df.iterrows():
         f"<td>{row['developers']}</td>"
         "\n"
         f"<td>{row['publishers']}</td>"
+        "\n"
+        f"<td>{achievements}</td>"
         "\n"
         f"<td>{row['appid']}</td>"
         "\n"
