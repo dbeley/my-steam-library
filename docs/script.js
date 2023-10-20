@@ -17,7 +17,7 @@ $(document).ready(function() {
             }
     };
     $.extend( $.fn.dataTable.ext.type.order, {
-      "achievements-custom-sort-desc": function (val_1, val_2) {
+      "achievements-custom-sort-asc": function (val_1, val_2) {
         var regex = /(\d+(\.\d+)?)/g;
         var match1 = val_1.match(regex);
         var match2 = val_2.match(regex);
@@ -46,7 +46,7 @@ $(document).ready(function() {
 
 
     $.extend( $.fn.dataTable.ext.type.order, {
-      "achievements-custom-sort-asc": function (val_1, val_2) {
+      "achievements-custom-sort-desc": function (val_1, val_2) {
         var regex = /(\d+(\.\d+)?)/g;
         var match1 = val_1.match(regex);
         var match2 = val_2.match(regex);
